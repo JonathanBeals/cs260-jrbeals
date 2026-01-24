@@ -7,3 +7,4 @@ with open('discharge.csv', newline='') as csvfile:
             print(', '.join(row))
 
 print("Hello csci 260")
+print("Hola")
