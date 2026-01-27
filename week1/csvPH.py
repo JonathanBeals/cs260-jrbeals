@@ -1,17 +1,18 @@
 import csv
 import math
 
-with open('discharge.csv', newline='') as csvfile:
+i = 0
+total = 0
+totalSquare = 0
+count = 0
+maxVal = 0
+minVal = 0
+first = True
+
+with open('pH.txt', newline = '') as csvfile:
     spamreader = csv.reader(csvfile, delimiter='\t')
-    i = 0
-    total = 0
-    totalSquare=0
-    count = 0
-    maxVal = 0
-    minVal = 0
-    first = True
     for row in spamreader:
-        if (row[0] == "USGS" and i < 100 ):
+        if (row[0] == "USGS"):
             total += float(row[4])
             value = float(row[4])
             totalSquare += value * value
@@ -26,8 +27,8 @@ with open('discharge.csv', newline='') as csvfile:
                     minVal = value
             count += 1
 
-print(f"Average: , {total/count:.2f}")
 stdev = math.sqrt((totalSquare-total*total/count)/(count -1))
-print(f"Std Dev: , {stdev:>6.2f}")
-print(f"Min:, \t{minVal:>10.2f}")
-print(f"Max:, \t{maxVal:>10.2f}")
+print(f"Min: \t{minVal:>7.2f}")
+print(f"Max: \t{maxVal:>7.2f}")
+print(f"Average: {total/count:>6.2f}")
+print(f"Std Dev: {stdev:>6.2f}")
