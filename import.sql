@@ -1,0 +1,1 @@
+\COPY discharge FROM 'cleandischarge.txt' (FORMAT CSV, DELIMITER(E'\t'));
