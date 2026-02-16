@@ -14,4 +14,4 @@ create table ph (
     last_modified text
 );
 
-\COPY ph FROM cleandischarge.txt (FORMAT CSV);
+\COPY ph FROM continuous.csv (FORMAT CSV);

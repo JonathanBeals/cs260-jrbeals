@@ -6,3 +6,5 @@ create table discharge (
     value float,
     accepted text
 );
+
+\COPY discharge FROM 'cleandischarge.csv' (FORMAT CSV, DELIMITER(E'\t'));

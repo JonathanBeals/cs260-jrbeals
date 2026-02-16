@@ -7,3 +7,4 @@ create table discharge (
     accepted text
     );
 
+\COPY discharge FROM 'cleandischarge.csv' (FORMAT CSV, DELIMITER(E'\t'));
