@@ -110,8 +110,10 @@ def registration():
 
 def deleteStudent():
     # Write this code to delete a student
+    
     # I took the basic logic from add a student then realized that I didnt need
     # first or last names and i could just delete the student using their id.
+    # Just in case ther was 2 students with the same names their id's would be unique.
     print("Please enter Students ID to delete: ")
     id=input("Id: ")
     query=f'''delete from students where id={id}'''
