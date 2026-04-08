@@ -1,0 +1,38 @@
+50% points from multi choice, 50% code
+
+Concepts of a user interface
+    text CLI (Command Line Interface)
+        You learned most of this in CSCI 111/110
+    GUI used tkinter (GUI.py)
+        Built in 
+        Event Driven -> Lambda in Python
+        Grid layout where we needed to hint at where things appear on the screen
+            sticky parameter (sticky="EW")
+        Dialog window that is shown when the user takes action
+        StringVar was needed when we allowed user to input/choose text 
+            -- Castleton's Note: No pointers in python (unless) pass by reference
+    CRUD
+        You should have successfully implemented delete (twice)
+
+Concepts in Graphs, Charting (housingPlot.py)
+    we did not cover all the ideas there
+    Edward Tufte concepts are important
+        Don't use more "ink" than needed
+    Scatter plots
+        all variable vs all variable plots
+            stats for each
+            correlations for each pair of variables
+        Matplotlib
+        Multiplot -> Dashboard
+            2D grid of plot areas(axis)
+                axis could just contain text
+                variable with stats
+                correlation data
+
+Domain Aggregation Functions
+    corr to get correlations
+    avg(mean) to get the average (repeat, stddev, min, max)
+Use python fstrings to create custom queries
+Database funcions probably should be isolated to a db library or area of the project
+
+        
