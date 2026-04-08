@@ -1,4 +1,5 @@
 50% points from multi choice, 50% code
+20 questions reading writing code at most 5
 
 Concepts of a user interface
     text CLI (Command Line Interface)
