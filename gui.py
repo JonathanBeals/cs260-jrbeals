@@ -61,6 +61,30 @@ def updateStudent(root):
     
     root.wait_window(dialog)
 
+def doDeleteStudent(idStr):
+    id=idStr.split(':')[0]
+    deleteStudent(id)
+
+def deleteStudent(root):
+    dialog = tk.Toplevel(root)
+    dialog.title("Delete A Student")
+    frm = ttk.Frame(dialog, padding=10)
+    frm = grid()
+
+    dialog.transient(root)
+    dialog.grab_set()
+    ttk.Label(frm, text="Student Id").grid(column=0,row=0, sticky="EW")
+    ttk.Combobox(frm,state='readonly',values=selectIds,textvariable=comboChoice).grid(column=1,row=0,sticky="EW")
+    id=StringVar()
+    selectIds = getIds()
+    comboChoice=StringVar()
+    ttk.Label(frm, text="Enter Student ID").grid(column=0,row=1,sticky="EW")
+
+    addButton(frm,"Delete Student",4,lambda : doDeleteStudent(comboChoice.get()))
+    button =ttk.Button(frm, text="Cancel",command=dialog.destroy).grid(column=1,row=3,sticky="EW")
+
+    root.wait_window(dialog)
+
 
 def listStudents(root):
     dialog = tk.Toplevel(root)
