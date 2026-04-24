@@ -5,7 +5,7 @@ DECLARE
 BEGIN
     FOREACH item IN ARRAY my_list
     LOOP */
-        create table disO (
+        create table pHb (
             id text,
             time_series_id text,
             monitoring_location_id text,
@@ -19,7 +19,7 @@ BEGIN
             last_modified text
         );
 
-        \COPY disO FROM do_primary-time-series.csv (HEADER, FORMAT CSV );
+        \COPY pHb FROM pHb_primary-time-series.csv (HEADER, FORMAT CSV );
 /*
     END LOOP;
 END $$;
