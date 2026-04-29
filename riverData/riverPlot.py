@@ -5,7 +5,18 @@ conn = psycopg2.connect(dbname="myapp", user="accounting", password="1234",host=
 
 cur = conn.cursor()
 
-where=""
+table="river2025"
+# Middle of year
+where=" where t>=183.0 and t<184.0"
+# Happy fish
+#where=" where diso>6 and ph>=6.5 and ph<=8.5"
+# Not Happy fish
+#where=" where not (diso>6 and ph>=6.5 and ph<=8.5)"
+fields=[("t","t(s)"),("turb","Turbidity()"),("ph","pH"),
+ ("diso","Dissolved Oxygen()"),("cond","Conductivity()"),
+ #("discharge","Discharge()"),
+ ("height","Height (ft)"),("temp","Temperature (degC)")
+  ]
 
 def doCorrelation(rowField,colField,where):
     query=f'''select 
@@ -13,7 +24,7 @@ def doCorrelation(rowField,colField,where):
         covar_samp({rowField},{colField}) as covar, 
         regr_intercept({rowField},{colField}) as b, 
         regr_slope({rowField},{colField}) as m 
-        from river2025 {where} limit 1;'''
+        from {table} {where} limit 1;'''
     cur.execute(query)
     return cur.fetchone();
 
@@ -23,20 +34,22 @@ def doStats(field,where):
         stddev_samp({field}) as s, 
         min({field}) as min, 
         max({field}) as max 
-        from river2025 {where} limit 1;'''
+        from {table} {where} limit 1;'''
     cur.execute(query)
     return cur.fetchone();
 
-query=f'''select turb,ph,doox,cond,discharge,height,temp
-        from river2025 {where};'''
+
+
+#make a cols only list from the fields list/labels 
+cols=""
+for f in fields:
+    if len(cols)>0:
+        cols+=","
+    cols+=f"{f[0]}"
+
+query=f'''select {cols} from {table} {where};'''
 cur.execute(query)
 records=cur.fetchall()
-
-# The fields must be from left to right in the same order as the query
-fields=[("turb","Turbidity()"),("ph","pH"),
- ("doox","Dissolved Oxygen()"),("cond","Conductivity()"),
- ("discharge","Discharge()"),("height","Height (ft)"),("temp","Temperature (degC)")
-  ]
 
 fig, ax = plt.subplots(len(fields),len(fields))
 
