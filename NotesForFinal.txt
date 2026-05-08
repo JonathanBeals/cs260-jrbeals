@@ -1,0 +1,98 @@
+50% of points from multiple choice
+    25 Questions
+    Facts
+        like postgres type questions
+
+50% from code (emphasis on SQL NOT PYTHON!!)
+    5 Questions
+    +Syntax is going to be more important
+        Queries we have seen
+            (practice on server db)
+        CRUD will be emphasis
+        Joins
+            Know when and why to use them
+        Indexs 
+            Know when and why to use them
+                look through the where clauses
+                    where id=10
+                       -on clauses (t1 join t2 on t1.id=t2.id)
+    "explain" esists but getting syntax correct on "explain" is not
+        explain select table blah blah...
+                
+Concepts
+    Matplotlib exists
+        scatterplots and others
+        -> dont study matplotlib details
+        options to add/remove labels, axis
+
+    ++psycopg2 exists
+        psql cli-tools
+        ++Don't store parameters in python code
+            even though we didnt do that in class 
+        +The info needed to connect is the same as psql
+
+    tkinter exists
+        to build user interface 
+        --lambda in Python
+
+    VOCAB of Relation/table vs database
+        relation is more the relational algebra
+        table is more "spreadsheet"
+        collection of tables/user privileges
+
+    CRUD
+        --Post, Get, Update Delete in web REST API
+
+        C - Create -> Insert
+        R - Retrive -> Select
+        U - Update -> Update
+        D - Delete -> Delete
+
+    Create Table
+        should be able to write a query to create a table that
+            has certian features
+    Create Indexs 
+        Should be able to answer questions about that
+    Drop Table
+        Do not do this without serious contemplation
+            Rename table (temporarily)
+
+    Insert Table
+        You can insert 1 or multiple rows
+            You can skip providing columns
+                + but you shouldnt 
+            syntax
+                the columns are in ()
+                the values are in ()
+
+        insert into students(first,last,gpa) 
+            values ('Karl','Castleton',4.0);
+
+        Update 
+            you can update 1 or more rows and do math/processing
+                on each row
+            syntax
+                no () around values
+                "set" keyword is needed
+        update students set first='karl' where last='castleton';
+
+    select ++ BIGGY
+        ++ where clause is the focus of limiting the result
+        + select result and add them to a new table 
+            insert into river2025 select ..........
+        column order
+        select GPA as gradeAverage,last as lastName students where last='castleton';
+        order by 
+        limit 10
+        --offset
+    Delete
+        use with caution
+        but almost always has a where clause
+        delete from students where last='castleton'
+        
+
+
+
+
+
+

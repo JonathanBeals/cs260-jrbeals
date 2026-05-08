@@ -15,7 +15,7 @@ conn = psycopg2.connect(dbname="myapp", user="accounting", password="1234",host=
 
 cur = conn.cursor()
 
-query='''select diso, ph, t from river2025;'''
+query='''select t, diso, ph from river2025;'''
 cur.execute(query)
 records=cur.fetchall()
 xs,ys,zs=toColumns(records)
